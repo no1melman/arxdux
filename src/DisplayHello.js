@@ -1,18 +1,17 @@
 import React from 'react';
 
-import { bindActionCreators, useRedux } from './Provider';
-import { sayHello } from './displayRedux';
+import { useDispatch } from './arxdux/hooks';
+import { sayHello } from './displayTopic';
 
 const mapStateToProps = state => ({ title: state.display.say });
-const mapDispatchToActionProps = dispatch =>
-    bindActionCreators({ say: sayHello }, dispatch);
 
 const DisplayHello = () => {
-    const [{ title }, { say }] = useRedux(mapStateToProps, mapDispatchToActionProps);
+    const { title } = { title: 'Compile' };
+    const dispatch = useDispatch();
 
     const handleClick = e => {
         e.preventDefault();
-        say('Hello');
+        dispatch(sayHello('Hello'));
     };
 
     return (

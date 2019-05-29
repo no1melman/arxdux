@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 
 import App from './App';
 
-import Provider from './Provider';
+import Provider from './arxdux/Provider';
 
 import store from './rootReducer';
 

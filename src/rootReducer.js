@@ -1,5 +1,6 @@
-import { combineReducers, createStore } from './Provider';
+import { combineTopics } from './arxdux/operators';
+import createStore from './arxdux/createStore';
 
-import { displayReducer } from './displayRedux';
+import { topic as displayTopic } from './displayTopic';
 
-export default createStore(combineReducers({ display: displayReducer }));
+export default createStore(combineTopics(displayTopic));
